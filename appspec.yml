@@ -8,13 +8,13 @@ hooks:
   ApplicationStart:
     - location: scripts/start.sh
       timeout: 300
-      runas: root
+      
   AfterInstall:
     - location: scripts/permission.sh
       timeout: 300
-      runas: root
+      
       
   ApplicationStop:
     - location: scripts/stop.sh
       timeout: 300
-      runas: root
+      
