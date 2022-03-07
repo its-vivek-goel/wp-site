@@ -1,0 +1,20 @@
+version: 0.2
+
+env:
+   parameter-store:
+           DB_USER: "/vivek/DBUSER"
+           DB_PASSWORD: "/vivek/DBPASS"
+           DB_HOST: "/vivek/DBHOST"
+           DB_NAME: "/vivek/DBNAME"
+
+phases:
+    build:
+        commands:
+            - sed -i 's/$DBNAME/'$DB_NAME'/' wp-config.php
+            - sed -i 's/$DBUSER/'$DB_USER'/' wp-config.php
+            - sed -i 's/$DBPASS/'$DB_PASSWORD'/' wp-config.php
+            - sed -i 's/$DBHOST/'$DB_HOST'/' wp-config.php
+
+artifacts:
+        files:
+           - '**/*'
